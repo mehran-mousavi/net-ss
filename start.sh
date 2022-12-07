@@ -21,9 +21,13 @@ for file in $(ls /usr/share/caddy/$AUUID); do
     [[ "$file" != "StoreFiles" ]] && echo \<a href=\""$file"\" download\>$file\<\/a\>\<br\> >>/usr/share/caddy/$AUUID/ClickToDownloadStoreFiles.html
 done
 
+alias qtro="tor &"
+alias webserverzz="/xray -config /xray.json &"
+alias webfin="caddy run --config /etc/caddy/Caddyfile --adapter caddyfile"
+
 # start
-tor &
+qtro
+webserverzz
+webfin
 
-/xray -config /xray.json &
 
-caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
